@@ -76,7 +76,12 @@ export const projects: Project[] = [
     links: {
       github: { label: 'View Code', url: 'https://github.com/Ryan9828/ShelfSense', status: 'live' },
       apiDocs: { label: 'API Docs', url: 'https://shelfsense-er6i.onrender.com/docs', status: 'live' },
-      liveDemo: { label: 'Storefront Demo', url: null, status: 'pending' },
+      liveDemo: {
+        label: 'Storefront Demo',
+        url: 'https://shelfsense-xwdd99njvxbzscfj5ankjk.streamlit.app/',
+        status: 'live',
+        caption: 'Streamlit Community Cloud cold start — may take ~30s to wake up',
+      },
     },
   },
   {
