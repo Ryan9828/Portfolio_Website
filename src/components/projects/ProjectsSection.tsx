@@ -12,7 +12,7 @@ export function ProjectsSection() {
       id="projects"
       eyebrow="Projects"
       heading="Selected work"
-      subheading="Six projects, curated from a larger portfolio — chosen for breadth across quant finance, recommenders, deployed ML, and agentic AI engineering rather than raw count."
+      subheading="Six projects, picked from a larger portfolio to show range — finance, recommendations, deployed models, and AI tooling — rather than just a long list."
     >
       <div className="grid md:grid-cols-2 gap-6">
         {flagship.map((project) => (

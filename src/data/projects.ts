@@ -36,17 +36,17 @@ export const projects: Project[] = [
   {
     slug: 'portfolio-risk-platform',
     title: 'Portfolio Market-Risk Platform',
-    tagline: 'A live, self-monitoring GARCH/VaR system with LLM-powered announcement intelligence',
+    tagline: 'A self-monitoring risk tracker for an investment portfolio, with AI-powered news analysis',
     description:
-      'Every weekday after ASX close, a GitHub Actions pipeline ingests prices, refits GARCH volatility models across a 3-ETF portfolio, computes VaR and Expected Shortfall four ways, backtests itself Basel-style, runs data-quality and drift checks, files GitHub issues on alerts, and publishes everything to a public dashboard. An LLM layer converts ASX announcements into typed risk signals, evaluated against a blind golden set. Not a notebook — a production system that runs unattended.',
+      "Tracks how much risk an investment portfolio is carrying, and updates itself automatically every weekday — no one has to touch it. Each run recalculates how much the portfolio could realistically lose in a bad stretch (a standard risk measure called Value-at-Risk), checks that estimate against what actually happened, and automatically flags anything that looks off. On top of that, an AI layer reads company news and turns it into an early risk signal, flagging that volatility may be coming before it shows up in the price data.",
     flagship: true,
     accent: 'green',
     icon: 'LineChart',
     techStack: ['Python', 'GARCH/EGARCH', 'Claude API', 'GitHub Actions', 'Streamlit', 'pytest'],
     metrics: [
-      { value: '4 VaR/ES methods', label: 'x2 horizons, x2 confidence levels' },
-      { value: '24 tests', label: 'fully offline, gate every push' },
-      { value: '$0', label: 'infra cost (free-tier only)' },
+      { value: '4 ways', label: 'to estimate potential losses' },
+      { value: '24 self-checks', label: 'run automatically before every update' },
+      { value: '$0', label: 'to run — free hosting only' },
     ],
     links: {
       github: { label: 'View Code', url: 'https://github.com/Ryan9828/Portfolio_Risk_Platform', status: 'live' },
@@ -54,24 +54,24 @@ export const projects: Project[] = [
         label: 'Live Dashboard',
         url: 'https://portfolioriskplatform-iysoqtl8vfnwclnujhak2c.streamlit.app/',
         status: 'live',
-        caption: 'Streamlit Community Cloud cold start — may take ~30s to wake up',
+        caption: 'Free-hosted app — may take ~30s to wake up',
       },
     },
   },
   {
     slug: 'shelfsense',
     title: 'ShelfSense',
-    tagline: 'A hybrid retail recommender, built on a negative result that survived scrutiny',
+    tagline: 'A product recommender for online shopping, built around an honest negative result',
     description:
-      'A hybrid product recommender trained on real H&M transaction data, benchmarking item-based collaborative filtering against a category-affinity + content-based hybrid via a paired-bootstrap offline A/B test. Item-CF lost decisively to a plain popularity baseline — and that finding stayed in the repo instead of being tuned away, driving an actual architecture change. Served via FastAPI with a 3-page Streamlit storefront demo.',
+      "A \"you might also like\" recommendation engine for an online store, trained on real H&M purchase data. The obvious approach — recommending items that similar shoppers bought — actually performed worse than just showing best-sellers, so instead of quietly tuning that away, the finding was tested rigorously and used to redesign the system around what actually worked. There's a live demo where you can search the catalog as a brand-new shopper and see the recommendation engine handle it in real time.",
     flagship: true,
     accent: 'purple',
     icon: 'ShoppingBag',
     techStack: ['Python', 'FastAPI', 'Streamlit', 'scikit-learn', 'implicit (ALS)', 'Docker'],
     metrics: [
-      { value: '~3,066', label: 'customers, real H&M transactions' },
-      { value: '2,000-resample', label: 'paired bootstrap A/B test' },
-      { value: 'Ties baseline', label: '95% CI includes zero' },
+      { value: '~3,066', label: 'real H&M shoppers in the test' },
+      { value: 'Rigorously tested', label: 'not just eyeballed' },
+      { value: 'Ties the baseline', label: 'the fix works just as well as the simple option' },
     ],
     links: {
       github: { label: 'View Code', url: 'https://github.com/Ryan9828/ShelfSense', status: 'live' },
@@ -80,24 +80,24 @@ export const projects: Project[] = [
         label: 'Storefront Demo',
         url: 'https://shelfsense-xwdd99njvxbzscfj5ankjk.streamlit.app/',
         status: 'live',
-        caption: 'Streamlit Community Cloud cold start — may take ~30s to wake up',
+        caption: 'Free-hosted app — may take ~30s to wake up',
       },
     },
   },
   {
     slug: 'fraud-detection',
     title: 'LSTM Fraud Detection & Deployment',
-    tagline: 'Real-time fraud scoring, from notebook to a deployed AWS API',
+    tagline: 'Real-time credit card fraud detection, deployed as a live API',
     description:
-      "An LSTM sequence classifier trained on 1.85M credit card transactions, learning a sliding window of each cardholder's history rather than classifying transactions in isolation. Four notebooks progress from baselines through XGBoost to the final deep-learning model, engineering burst-fraud signals (time since last transaction, prior amount) along the way. Threshold tuned against an actual cost model (LexisNexis True Cost of Fraud) instead of F1. Packaged into a FastAPI service (GET /health, POST /predict), containerised with Docker, and deployed to AWS EC2 for real-time inference.",
+      "Flags likely-fraudulent credit card transactions in real time, trained on 1.85M transactions. Instead of judging one transaction alone, it looks at a customer's recent purchase history — a fraudster's pattern of spending looks different, not just any single charge in isolation. The alert threshold was tuned against the actual dollar cost of missed fraud vs. false alarms, not a generic accuracy score, then packaged into a live API and deployed on AWS for real-time checks.",
     flagship: false,
     accent: 'pink',
     icon: 'ShieldAlert',
     techStack: ['Python', 'TensorFlow / Keras', 'FastAPI', 'Docker', 'AWS EC2'],
     metrics: [
-      { value: '0.9865 / 0.9993', label: 'PR-AUC / ROC-AUC' },
-      { value: '32-step', label: 'per-card transaction windows' },
-      { value: '97.5%', label: 'fraud caught at cost-optimal threshold' },
+      { value: '97.5%', label: 'of fraud caught, tuned to real dollar costs' },
+      { value: '32 transactions', label: "of history checked per customer" },
+      { value: '0.9865 / 0.9993', label: 'model accuracy scores (PR-AUC / ROC-AUC)' },
     ],
     links: {
       github: { label: 'View Code', url: 'https://github.com/Ryan9828/Fraud-Detection-Project', status: 'live' },
@@ -106,17 +106,17 @@ export const projects: Project[] = [
   {
     slug: 'lendingclub-loan-analytics',
     title: 'LendingClub Loan Analytics',
-    tagline: 'Demand forecasting, default risk, and return optimisation across 30M+ loan records',
+    tagline: 'Does raising interest rates actually protect a lender? This analysis says no.',
     description:
-      "An investor-focused analysis of LendingClub's public lending data (2007-2018), testing whether interest rates suppress loan demand and whether they can be used to maximise investor returns. A 12:1 rejected-to-accepted ratio pointed to platform policy — not rates — as the real demand constraint, confirmed via SARIMAX(3,0,0)x(1,0,1) time-series modelling. Logistic regression then documented adverse selection: the highest-rate decile defaults at roughly 3x the lowest, and grade-level pricing turned out to be inefficient (A-C overpriced, D-G underpriced relative to realised risk). Delivered as a 4-dashboard Tableau workbook alongside the analysis.",
+      "An analysis of 30M+ real loan applications, answering a question any investor would ask: do higher interest rates scare off borrowers, and can rates be used to boost investor returns? Both turned out to be no — loan volume is driven by how many applications the platform approves, not the price, and it's lending to riskier people (not charging higher rates) that actually drives defaults. That finding fed into a recommended, safer pricing strategy, backed by an interactive dashboard built for non-technical stakeholders.",
     flagship: false,
     accent: 'yellow',
     icon: 'Landmark',
     techStack: ['Python', 'statsmodels (SARIMAX)', 'scikit-learn', 'Tableau', 'FRED API'],
     metrics: [
-      { value: '30M', label: 'loan records (2.26M accepted + 27.65M rejected)' },
-      { value: '~5.8%', label: 'optimal investor rate identified' },
-      { value: '3x', label: 'default rate: highest vs lowest rate decile' },
+      { value: '30M', label: 'real loan applications analysed' },
+      { value: '~5.8%', label: 'recommended interest rate' },
+      { value: '3x', label: 'more often riskier borrowers default' },
     ],
     links: {
       github: { label: 'View Code', url: 'https://github.com/Ryan9828/Loan_project', status: 'live' },
@@ -125,17 +125,17 @@ export const projects: Project[] = [
   {
     slug: 'iot-device-classifier',
     title: 'IoT Device Classifier — KDDI Capstone',
-    tagline: 'Identifying IoT device types from network metadata alone, at ISP scale',
+    tagline: "Identifying what's on a network, without ever looking at the data itself",
     description:
-      "A 25-class IoT device classifier built with KDDI Corporation (Japanese telco), working from 19.12M IPFIX network flow records — metadata only, no traffic content — enabling privacy-preserving device monitoring at ISP scale. Training on a single month caused a 25-point accuracy drop just one month later (concept drift), fixed with fixed-quota sampling of the most recent records per device. A second failure mode, label shift, showed up when one device's test-set volume jumped 15x versus training (8,284 to 124,193 records) with no warning in the training distribution. Capstone code is not publicly released due to data-sensitivity agreements with KDDI; this is a methodology write-up.",
+      "Built with KDDI, a Japanese telecom company, to identify what kind of smart device (camera, speaker, etc.) is connected to a network — using only traffic patterns, never the actual data being sent, which matters for user privacy. Two tricky problems came up along the way: the model kept going stale as devices received software updates, and one device's usage pattern shifted so much between training and testing that the model didn't recognise it at all at first. Fixing both took real investigation, not just retraining with more data. Capstone code isn't public due to a data-sensitivity agreement with KDDI — this is a methodology write-up.",
     flagship: false,
     accent: 'blue',
     icon: 'Cpu',
     techStack: ['Python', 'scikit-learn (Random Forest)', 'LightGBM', 'pandas'],
     metrics: [
-      { value: '19.12M', label: 'IPFIX records, 25 device classes' },
-      { value: '86% / 78%', label: 'accuracy / Macro F1' },
-      { value: '108 days', label: 'of real telco traffic data' },
+      { value: '19M+', label: 'network records analysed' },
+      { value: '25 devices', label: 'types identified from traffic alone' },
+      { value: '86%', label: 'accuracy in the field' },
     ],
     links: {
       github: { label: 'Code not public', url: null, status: 'none' },
@@ -144,17 +144,17 @@ export const projects: Project[] = [
   {
     slug: 'job-application-assistant',
     title: 'Job Application Assistant',
-    tagline: 'A multi-agent Claude pipeline that automated my own graduate job search',
+    tagline: 'An AI tool I built to automate my own graduate job search',
     description:
-      'A two-phase AI pipeline automating the graduate job search workflow — daily scraping across 5 job sites, deduplicated and sorted into 4 relevance tiers, with on-demand per-job research, resume tailoring, verification, and cover letter generation. A conductor agent coordinates 4 specialised subagents, each with a scoped context window to prevent cross-contamination between jobs. An automated verification loop scores each tailored resume out of 100 (keyword coverage, format compliance, experience relevance, length) and re-feeds failures below 75 back to the tailoring agent, with a 2-retry cap before flagging for manual review.',
+      'Automates the entire job-search grind: it checks 5 job sites every day, filters out anything irrelevant, and for roles I flag as worth pursuing, it researches the company, drafts a tailored resume and cover letter, and grades its own work against a scoring checklist before showing it to me for final review. Several AI agents split the work — one researches, one writes, one checks quality — so each stays focused on a single job at a time instead of getting confused across many.',
     flagship: false,
     accent: 'orange',
     icon: 'Bot',
     techStack: ['Python', 'Claude API', 'Multi-agent orchestration', 'Playwright', 'Pandoc'],
     metrics: [
-      { value: '100+ hours', label: 'saved across a 3-month job search' },
-      { value: '5 job sites', label: 'scraped and deduplicated daily' },
-      { value: '4 subagents', label: 'researcher, tailor, verifier, cover letter' },
+      { value: '100+ hours', label: 'saved over a 3-month job search' },
+      { value: '5 job sites', label: 'checked automatically, every day' },
+      { value: '4 AI agents', label: 'splitting research, writing, and review' },
     ],
     links: {
       github: { label: 'View Code', url: null, status: 'none' },
