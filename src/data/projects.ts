@@ -45,7 +45,7 @@ export const projects: Project[] = [
     techStack: ['Python', 'GARCH/EGARCH', 'Claude API', 'GitHub Actions', 'Streamlit', 'pytest'],
     metrics: [
       { value: '4 ways', label: 'to estimate potential losses' },
-      { value: '24 self-checks', label: 'run automatically before every update' },
+      { value: '37 self-checks', label: 'tests + data monitors run on every update' },
       { value: '$0', label: 'to run — free hosting only' },
     ],
     links: {
@@ -95,9 +95,9 @@ export const projects: Project[] = [
     icon: 'ShieldAlert',
     techStack: ['Python', 'TensorFlow / Keras', 'FastAPI', 'Docker', 'AWS EC2'],
     metrics: [
-      { value: '97.5%', label: 'of fraud caught, tuned to real dollar costs' },
+      { value: '~3× cheaper', label: 'fraud cost vs a standard alert threshold' },
       { value: '32 transactions', label: "of history checked per customer" },
-      { value: '0.9865 / 0.9993', label: 'model accuracy scores (PR-AUC / ROC-AUC)' },
+      { value: '0.9865 / 0.9993', label: 'PR-AUC / ROC-AUC on held-out test data' },
     ],
     links: {
       github: { label: 'View Code', url: 'https://github.com/Ryan9828/Fraud-Detection-Project', status: 'live' },
@@ -135,7 +135,7 @@ export const projects: Project[] = [
     metrics: [
       { value: '19M+', label: 'network records analysed' },
       { value: '25 devices', label: 'types identified from traffic alone' },
-      { value: '86%', label: 'accuracy in the field' },
+      { value: '86%', label: 'accuracy on out-of-time test data' },
     ],
     links: {
       github: { label: 'Code not public', url: null, status: 'none' },
@@ -152,7 +152,7 @@ export const projects: Project[] = [
     icon: 'Bot',
     techStack: ['Python', 'Claude API', 'Multi-agent orchestration', 'Playwright', 'Pandoc'],
     metrics: [
-      { value: '100+ hours', label: 'saved over a 3-month job search' },
+      { value: 'est. 100+ hrs', label: 'saved over a 3-month job search' },
       { value: '5 job sites', label: 'checked automatically, every day' },
       { value: '4 AI agents', label: 'splitting research, writing, and review' },
     ],
