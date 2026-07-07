@@ -52,7 +52,7 @@ export const projects: Project[] = [
       github: { label: 'View Code', url: 'https://github.com/Ryan9828/Portfolio_Risk_Platform', status: 'live' },
       liveDemo: {
         label: 'Live Dashboard',
-        url: 'https://ryan9828-portfolio-risk-platform.streamlit.app',
+        url: 'https://portfolioriskplatform-iysoqtl8vfnwclnujhak2c.streamlit.app/',
         status: 'live',
         caption: 'Streamlit Community Cloud cold start — may take ~30s to wake up',
       },
