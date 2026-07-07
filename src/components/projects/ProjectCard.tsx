@@ -15,7 +15,7 @@ export function ProjectCard({ project }: { project: Project }) {
       <div className="p-5 flex flex-col flex-1">
         <h3 className="text-lg font-bold text-foreground">{project.title}</h3>
         <p className="text-muted-foreground text-sm mt-1">{project.tagline}</p>
-        <p className="text-subtle-foreground text-xs mt-2 leading-relaxed line-clamp-3">
+        <p className="text-subtle-foreground text-xs mt-2 leading-relaxed">
           {project.description}
         </p>
 
@@ -25,8 +25,8 @@ export function ProjectCard({ project }: { project: Project }) {
           ))}
         </div>
 
-        <div className="grid grid-cols-2 gap-2 mt-4">
-          {project.metrics.slice(0, 2).map((metric) => (
+        <div className="grid grid-cols-3 gap-2 mt-4">
+          {project.metrics.map((metric) => (
             <MetricTile key={metric.label} metric={metric} accentHex={accentHex} />
           ))}
         </div>
