@@ -24,8 +24,8 @@ export function AboutSection() {
       heading="Models that ship, not just notebooks that run"
     >
       <p className="text-muted-foreground max-w-2xl leading-relaxed">
-        I'm a final-year Data Science &amp; Decisions student at UNSW, currently a Quantitative
-        Risk Intern at Toyota Finance Australia, where I extend production XGBoost models and
+        I'm a final-year Data Science &amp; Decisions student at UNSW (graduating 2026), currently
+        a Quantitative Risk Intern at Toyota Finance Australia, where I extend production XGBoost models and
         build the data pipelines that feed them. Outside of work, I build full systems end to
         end — ingestion, modeling, monitoring, and deployment — because the gap between a good
         model and a useful one is usually everything that happens after the notebook.

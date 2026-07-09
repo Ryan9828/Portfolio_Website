@@ -44,9 +44,9 @@ export const projects: Project[] = [
     icon: 'LineChart',
     techStack: ['Python', 'GARCH/EGARCH', 'Claude API', 'GitHub Actions', 'Streamlit', 'pytest'],
     metrics: [
-      { value: '4 ways', label: 'to estimate potential losses' },
-      { value: '37 self-checks', label: 'tests + data monitors run on every update' },
-      { value: '$0', label: 'to run — free hosting only' },
+      { value: '4 VaR models', label: 'independent methods, cross-checked' },
+      { value: 'Backtested', label: 'VaR checked against realised losses each run' },
+      { value: 'Every weekday', label: 'updates itself, fully unattended' },
     ],
     links: {
       github: { label: 'View Code', url: 'https://github.com/Ryan9828/Portfolio_Risk_Platform', status: 'live' },
@@ -69,9 +69,9 @@ export const projects: Project[] = [
     icon: 'ShoppingBag',
     techStack: ['Python', 'FastAPI', 'Streamlit', 'scikit-learn', 'implicit (ALS)', 'Docker'],
     metrics: [
-      { value: '~3,066', label: 'real H&M shoppers in the test' },
-      { value: 'Rigorously tested', label: 'not just eyeballed' },
-      { value: 'Ties the baseline', label: 'the fix works just as well as the simple option' },
+      { value: '~3,066 shoppers', label: 'real H&M purchase histories in the offline test' },
+      { value: 'Cold-start ready', label: 'recommends to brand-new users with no history' },
+      { value: 'Measured, not assumed', label: 'offline eval picked the approach that actually won' },
     ],
     links: {
       github: { label: 'View Code', url: 'https://github.com/Ryan9828/ShelfSense', status: 'live' },
@@ -144,17 +144,17 @@ export const projects: Project[] = [
   {
     slug: 'job-application-assistant',
     title: 'Job Application Assistant',
-    tagline: 'An AI tool I built to automate my own graduate job search',
+    tagline: 'A multi-agent pipeline that researches roles and drafts tailored applications',
     description:
-      'Automates the entire job-search grind: it checks 5 job sites every day, filters out anything irrelevant, and for roles I flag as worth pursuing, it researches the company, drafts a tailored resume and cover letter, and grades its own work against a scoring checklist before showing it to me for final review. Several AI agents split the work — one researches, one writes, one checks quality — so each stays focused on a single job at a time instead of getting confused across many.',
+      "A multi-agent system I built to run my own job search end to end. Specialised agents split the work — one scrapes and filters 5 job boards daily, one researches the company, one drafts a tailored resume and cover letter — and a separate reviewer agent grades every draft against a scoring rubric before anything reaches me for final review. Nothing is auto-submitted; the interesting engineering is the orchestration and the self-grading eval loop that keeps each agent focused on one role at a time instead of drifting across many.",
     flagship: false,
     accent: 'orange',
     icon: 'Bot',
     techStack: ['Python', 'Claude API', 'Multi-agent orchestration', 'Playwright', 'Pandoc'],
     metrics: [
-      { value: 'est. 100+ hrs', label: 'saved over a 3-month job search' },
-      { value: '5 job sites', label: 'checked automatically, every day' },
-      { value: '4 AI agents', label: 'splitting research, writing, and review' },
+      { value: '4 specialised agents', label: 'research, drafting, QA & orchestration' },
+      { value: 'Self-grading loop', label: 'every draft scored against a rubric before I see it' },
+      { value: '5 job boards', label: 'scraped and filtered automatically, every day' },
     ],
     links: {
       github: { label: 'View Code', url: null, status: 'none' },

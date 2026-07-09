@@ -15,10 +15,10 @@ export function Hero() {
           Turning models into shipped systems — not notebooks.
         </p>
         <p className="text-muted-foreground mt-6 max-w-xl">
-          Final-year Data Science &amp; Decisions student at UNSW. I build things that run
-          unattended in production: live risk pipelines, deployed recommenders, and
-          fraud-detection APIs — with the same rigor whether the audience is a model
-          validator or a hiring manager.
+          Final-year Data Science &amp; Decisions student at UNSW and Quantitative Risk Intern
+          at Toyota Finance Australia. I build things that run unattended — deployed,
+          self-monitoring risk pipelines, recommenders, and fraud-detection APIs — with the
+          same rigor whether the audience is a model validator or a hiring manager.
         </p>
 
         <div className="flex flex-wrap items-center gap-3 mt-8">
