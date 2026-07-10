@@ -11,7 +11,7 @@ export function FlagshipProjectCard({ project }: { project: Project }) {
   const accentHex = ACCENT_HEX[project.accent]
 
   return (
-    <Card className="md:col-span-2 p-0 overflow-hidden">
+    <Card className="md:col-span-2 p-0 overflow-hidden transition-shadow duration-200 hover:shadow-[0_8px_28px_rgba(16,24,40,0.10)]">
       <GradientIcon icon={project.icon} accent={project.accent} className="h-40" />
       <div className="p-6">
         <div className="flex items-center gap-2 mb-2">

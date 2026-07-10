@@ -25,7 +25,8 @@ export function GradientIcon({ icon, accent, className }: GradientIconProps) {
     <div
       className={className}
       style={{
-        background: `linear-gradient(135deg, ${hex}26 0%, ${hex}08 100%)`,
+        background: `linear-gradient(135deg, ${hex}24 0%, ${hex}0a 100%)`,
+        borderBottom: `1px solid ${hex}1f`,
       }}
     >
       <div className="w-full h-full flex items-center justify-center">

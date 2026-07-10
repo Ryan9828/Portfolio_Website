@@ -3,7 +3,15 @@ import { Button } from '@/components/ui/button'
 
 export function Hero() {
   return (
-    <section id="hero" className="min-h-[85svh] flex items-center px-6">
+    <section id="hero" className="relative min-h-[85svh] flex items-center px-6 overflow-hidden">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 -z-10"
+        style={{
+          background:
+            'radial-gradient(60% 55% at 15% 0%, rgba(4,120,87,0.06) 0%, rgba(4,120,87,0) 60%), radial-gradient(55% 50% at 100% 10%, rgba(3,105,161,0.05) 0%, rgba(3,105,161,0) 55%)',
+        }}
+      />
       <div className="max-w-5xl mx-auto w-full">
         <p className="text-sm font-semibold tracking-widest uppercase text-accent-green mb-4">
           Ryan Murray

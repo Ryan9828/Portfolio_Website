@@ -3,13 +3,13 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '@/lib/utils'
 
 const buttonVariants = cva(
-  'inline-flex items-center justify-center gap-1.5 font-medium transition-colors disabled:opacity-40 disabled:cursor-not-allowed',
+  'inline-flex items-center justify-center gap-1.5 font-medium cursor-pointer transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-blue focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:opacity-40 disabled:cursor-not-allowed',
   {
     variants: {
       variant: {
-        default: 'bg-input border border-input-border text-foreground hover:border-subtle-foreground',
-        ghost: 'text-subtle-foreground hover:text-muted-foreground',
-        outline: 'border border-border text-muted-foreground hover:text-foreground hover:bg-[#1a1a1a]',
+        default: 'bg-input border border-input-border text-foreground hover:border-subtle-foreground hover:bg-black/[0.02]',
+        ghost: 'text-subtle-foreground hover:text-foreground',
+        outline: 'border border-border text-muted-foreground hover:text-foreground hover:bg-black/[0.04]',
         accent: '',
       },
       size: {
@@ -25,12 +25,12 @@ const buttonVariants = cva(
 export type ButtonAccentColor = 'green' | 'purple' | 'blue' | 'yellow' | 'orange' | 'pink'
 
 export const ACCENT_HEX: Record<ButtonAccentColor, string> = {
-  green: '#00ff87',
-  purple: '#b66dff',
-  blue: '#4db8ff',
-  yellow: '#ffe066',
-  orange: '#ff9966',
-  pink: '#ff6db6',
+  green: '#047857',
+  purple: '#6d28d9',
+  blue: '#0369a1',
+  yellow: '#b45309',
+  orange: '#c2410c',
+  pink: '#be185d',
 }
 
 export interface ButtonProps
@@ -43,14 +43,14 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, accentColor = 'green', style, ...props }, ref) => {
     const accentStyle =
       variant === 'accent'
-        ? { backgroundColor: `${ACCENT_HEX[accentColor]}1a`, color: ACCENT_HEX[accentColor], ...style }
+        ? { backgroundColor: `${ACCENT_HEX[accentColor]}14`, color: ACCENT_HEX[accentColor], ...style }
         : style
     return (
       <button
         ref={ref}
         className={cn(
           buttonVariants({ variant, size }),
-          variant === 'accent' && 'hover:brightness-110',
+          variant === 'accent' && 'hover:brightness-[0.97]',
           className,
         )}
         style={accentStyle}

@@ -2,18 +2,18 @@ import { Section } from '@/components/layout/Section'
 import { Badge } from '@/components/ui/badge'
 
 const skillGroups: { label: string; color: string; skills: string[] }[] = [
-  { label: 'Languages', color: '#4db8ff', skills: ['Python', 'SQL', 'R'] },
+  { label: 'Languages', color: '#0369a1', skills: ['Python', 'SQL', 'R'] },
   {
     label: 'ML / Modeling',
-    color: '#00ff87',
+    color: '#047857',
     skills: ['scikit-learn', 'TensorFlow / Keras', 'XGBoost / LightGBM', 'GARCH', 'statsmodels'],
   },
   {
     label: 'Data Engineering',
-    color: '#ffe066',
+    color: '#b45309',
     skills: ['pandas', 'PySpark', 'Docker', 'FastAPI', 'GitHub Actions'],
   },
-  { label: 'Cloud / MLOps', color: '#b66dff', skills: ['AWS EC2', 'Streamlit Cloud', 'Vercel', 'Databricks'] },
+  { label: 'Cloud / MLOps', color: '#6d28d9', skills: ['AWS EC2', 'Streamlit Cloud', 'Vercel', 'Databricks'] },
 ]
 
 export function AboutSection() {

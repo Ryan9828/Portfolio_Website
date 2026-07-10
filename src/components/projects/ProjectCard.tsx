@@ -10,7 +10,7 @@ export function ProjectCard({ project }: { project: Project }) {
   const accentHex = ACCENT_HEX[project.accent]
 
   return (
-    <Card className="p-0 overflow-hidden flex flex-col">
+    <Card className="p-0 overflow-hidden flex flex-col transition-shadow duration-200 hover:shadow-[0_8px_28px_rgba(16,24,40,0.10)]">
       <GradientIcon icon={project.icon} accent={project.accent} className="h-28" />
       <div className="p-5 flex flex-col flex-1">
         <h3 className="text-lg font-bold text-foreground">{project.title}</h3>
