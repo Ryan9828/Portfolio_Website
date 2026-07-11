@@ -14,11 +14,6 @@ export interface Metric {
 
 export type AccentColor = 'green' | 'purple' | 'blue' | 'yellow' | 'orange' | 'pink'
 
-export interface Screenshot {
-  src: string
-  alt: string
-}
-
 export interface Project {
   slug: string
   title: string
@@ -27,7 +22,6 @@ export interface Project {
   flagship: boolean
   accent: AccentColor
   icon: 'LineChart' | 'ShoppingBag' | 'ShieldAlert' | 'Landmark' | 'Cpu' | 'Bot' | 'Scale'
-  screenshot?: Screenshot
   techStack: string[]
   metrics: Metric[]
   links: {
@@ -48,10 +42,6 @@ export const projects: Project[] = [
     flagship: true,
     accent: 'green',
     icon: 'LineChart',
-    screenshot: {
-      src: '/screenshots/risk-platform.webp',
-      alt: 'Live risk dashboard: all monitoring checks passing, 1-day VaR and Expected Shortfall as of the latest ASX close',
-    },
     techStack: ['Python', 'GARCH/EGARCH', 'Claude API', 'GitHub Actions', 'Streamlit', 'pytest'],
     metrics: [
       { value: '4 VaR models', label: 'independent methods, cross-checked' },
@@ -77,10 +67,6 @@ export const projects: Project[] = [
     flagship: true,
     accent: 'purple',
     icon: 'ShoppingBag',
-    screenshot: {
-      src: '/screenshots/shelfsense.webp',
-      alt: 'ShelfSense demo comparing three recommenders side by side for the same customer: shipped hybrid, popularity baseline, and benchmarked item-CF',
-    },
     techStack: ['Python', 'FastAPI', 'Streamlit', 'scikit-learn', 'implicit (ALS)', 'Docker'],
     metrics: [
       { value: '~3,066 shoppers', label: 'real H&M purchase histories in the offline test' },
@@ -153,6 +139,12 @@ export const projects: Project[] = [
     ],
     links: {
       github: { label: 'View Code', url: 'https://github.com/Ryan9828/Toxicity-Bias-Audit', status: 'live' },
+      liveDemo: {
+        label: 'Live Demo',
+        url: 'https://toxicity-bias-audit-u6ehqytyyzyeqxfz8mphf5.streamlit.app/',
+        status: 'live',
+        caption: 'Free-hosted app — may take ~30s to wake up',
+      },
     },
   },
   {

@@ -12,17 +12,7 @@ export function FlagshipProjectCard({ project }: { project: Project }) {
 
   return (
     <Card className="md:col-span-2 p-0 overflow-hidden transition-shadow duration-200 hover:shadow-[0_8px_28px_rgba(16,24,40,0.10)]">
-      {project.screenshot ? (
-        <img
-          src={project.screenshot.src}
-          alt={project.screenshot.alt}
-          loading="lazy"
-          className="w-full aspect-[3/1] object-cover"
-          style={{ borderBottom: `1px solid ${accentHex}1f` }}
-        />
-      ) : (
-        <GradientIcon icon={project.icon} accent={project.accent} className="h-40" />
-      )}
+      <GradientIcon icon={project.icon} accent={project.accent} className="h-40" />
       <div className="p-6">
         <div className="flex items-center gap-2 mb-2">
           <Badge color={accentHex} className="text-[10px] px-2 py-0.5 font-bold uppercase tracking-wide">
