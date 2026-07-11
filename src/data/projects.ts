@@ -14,6 +14,11 @@ export interface Metric {
 
 export type AccentColor = 'green' | 'purple' | 'blue' | 'yellow' | 'orange' | 'pink'
 
+export interface Screenshot {
+  src: string
+  alt: string
+}
+
 export interface Project {
   slug: string
   title: string
@@ -22,6 +27,7 @@ export interface Project {
   flagship: boolean
   accent: AccentColor
   icon: 'LineChart' | 'ShoppingBag' | 'ShieldAlert' | 'Landmark' | 'Cpu' | 'Bot'
+  screenshot?: Screenshot
   techStack: string[]
   metrics: Metric[]
   links: {
@@ -42,11 +48,15 @@ export const projects: Project[] = [
     flagship: true,
     accent: 'green',
     icon: 'LineChart',
+    screenshot: {
+      src: '/screenshots/risk-platform.webp',
+      alt: 'Live risk dashboard: all monitoring checks passing, 1-day VaR and Expected Shortfall as of the latest ASX close',
+    },
     techStack: ['Python', 'GARCH/EGARCH', 'Claude API', 'GitHub Actions', 'Streamlit', 'pytest'],
     metrics: [
       { value: '4 VaR models', label: 'independent methods, cross-checked' },
-      { value: 'Backtested', label: 'VaR checked against realised losses each run' },
-      { value: 'Every weekday', label: 'updates itself, fully unattended' },
+      { value: '500 days', label: 'walk-forward backtest, Basel traffic-light' },
+      { value: '32 tests', label: 'in CI, incl. end-to-end pipeline run' },
     ],
     links: {
       github: { label: 'View Code', url: 'https://github.com/Ryan9828/Portfolio_Risk_Platform', status: 'live' },
@@ -63,15 +73,19 @@ export const projects: Project[] = [
     title: 'ShelfSense',
     tagline: 'A product recommender for online shopping, built around an honest negative result',
     description:
-      "A \"you might also like\" recommendation engine for an online store, trained on real H&M purchase data. The obvious approach — recommending items that similar shoppers bought — actually performed worse than just showing best-sellers, so instead of quietly tuning that away, the finding was tested rigorously and used to redesign the system around what actually worked. There's a live demo where you can search the catalog as a brand-new shopper and see the recommendation engine handle it in real time.",
+      "A \"you might also like\" recommendation engine for an online store, trained on real H&M purchase data. The textbook approach (collaborative filtering) lost to a simple best-sellers baseline in my offline A/B test, so I kept the losing model in the repo for reproducibility and redesigned the system around category-affinity routing, which personalises results while matching the baseline. There's a live demo where you can search the catalog as a brand-new shopper and watch the cold-start path handle it in real time.",
     flagship: true,
     accent: 'purple',
     icon: 'ShoppingBag',
+    screenshot: {
+      src: '/screenshots/shelfsense.webp',
+      alt: 'ShelfSense demo comparing three recommenders side by side for the same customer: shipped hybrid, popularity baseline, and benchmarked item-CF',
+    },
     techStack: ['Python', 'FastAPI', 'Streamlit', 'scikit-learn', 'implicit (ALS)', 'Docker'],
     metrics: [
       { value: '~3,066 shoppers', label: 'real H&M purchase histories in the offline test' },
-      { value: 'Cold-start ready', label: 'recommends to brand-new users with no history' },
-      { value: 'Measured, not assumed', label: 'offline eval picked the approach that actually won' },
+      { value: '3 routing tiers', label: 'affinity / content / popularity by history depth' },
+      { value: '95% CI', label: 'paired-bootstrap A/B test vs popularity baseline' },
     ],
     links: {
       github: { label: 'View Code', url: 'https://github.com/Ryan9828/ShelfSense', status: 'live' },
@@ -89,7 +103,7 @@ export const projects: Project[] = [
     title: 'LSTM Fraud Detection & Deployment',
     tagline: 'Real-time credit card fraud detection, deployed as a live API',
     description:
-      "Flags likely-fraudulent credit card transactions in real time, trained on 1.85M transactions. Instead of judging one transaction alone, it looks at a customer's recent purchase history — a fraudster's pattern of spending looks different, not just any single charge in isolation. The alert threshold was tuned against the actual dollar cost of missed fraud vs. false alarms, not a generic accuracy score, then packaged into a live API and deployed on AWS for real-time checks.",
+      "Flags likely-fraudulent credit card transactions in real time, trained on 1.85M transactions. The LSTM reads each customer's recent purchase history as a sequence, because fraud shows up as a change in spending pattern rather than a single suspicious charge. I tuned the alert threshold against the dollar cost of missed fraud vs. false alarms, then packaged the model into a FastAPI service and deployed it on AWS for real-time checks.",
     flagship: false,
     accent: 'pink',
     icon: 'ShieldAlert',
@@ -108,15 +122,15 @@ export const projects: Project[] = [
     title: 'LendingClub Loan Analytics',
     tagline: 'Does raising interest rates actually protect a lender? This analysis says no.',
     description:
-      "An analysis of 30M+ real loan applications, answering a question any investor would ask: do higher interest rates scare off borrowers, and can rates be used to boost investor returns? Both turned out to be no — loan volume is driven by how many applications the platform approves, not the price, and it's lending to riskier people (not charging higher rates) that actually drives defaults. That finding fed into a recommended, safer pricing strategy, backed by an interactive dashboard built for non-technical stakeholders.",
+      "An analysis of 30M+ real loan applications, answering a question any investor would ask: do higher interest rates scare off borrowers, and can rates be used to boost returns? Both answers were no. Loan volume tracks how many applications the platform approves rather than the price, and returns were highest in the lowest-rate segment and fell steadily from there — direct evidence against chasing returns through higher rates. The findings back a safer recommended pricing strategy, presented in an interactive Tableau dashboard for non-technical stakeholders.",
     flagship: false,
     accent: 'yellow',
     icon: 'Landmark',
     techStack: ['Python', 'statsmodels (SARIMAX)', 'scikit-learn', 'Tableau', 'FRED API'],
     metrics: [
-      { value: '30M', label: 'real loan applications analysed' },
-      { value: '~5.8%', label: 'recommended interest rate' },
-      { value: '3x', label: 'more often riskier borrowers default' },
+      { value: '30M+', label: 'real loan applications analysed' },
+      { value: '128 months', label: 'of volume forecast with SARIMAX' },
+      { value: '3×', label: 'higher default rate in riskier grades' },
     ],
     links: {
       github: { label: 'View Code', url: 'https://github.com/Ryan9828/Loan_project', status: 'live' },
@@ -127,7 +141,7 @@ export const projects: Project[] = [
     title: 'IoT Device Classifier — KDDI Capstone',
     tagline: "Identifying what's on a network, without ever looking at the data itself",
     description:
-      "Built with KDDI, a Japanese telecom company, to identify what kind of smart device (camera, speaker, etc.) is connected to a network — using only traffic patterns, never the actual data being sent, which matters for user privacy. Two tricky problems came up along the way: the model kept going stale as devices received software updates, and one device's usage pattern shifted so much between training and testing that the model didn't recognise it at all at first. Fixing both took real investigation, not just retraining with more data. Capstone code isn't public due to a data-sensitivity agreement with KDDI — this is a methodology write-up.",
+      "Built with KDDI, a Japanese telecom company, to identify what kind of smart device (camera, speaker, etc.) is connected to a network using only traffic patterns — never the actual data being sent, which matters for user privacy. Two hard problems drove the work: the model kept going stale as devices received software updates, and one device's usage pattern shifted so much between training and testing that the model initially failed to recognise it at all. Diagnosing and fixing both required proper investigation into distribution shift, beyond simply retraining. The code stays private under a data-sensitivity agreement with KDDI; I'm happy to walk through the methodology in an interview.",
     flagship: false,
     accent: 'blue',
     icon: 'Cpu',
@@ -152,8 +166,8 @@ export const projects: Project[] = [
     icon: 'Bot',
     techStack: ['Python', 'Claude API', 'Multi-agent orchestration', 'Playwright', 'Pandoc'],
     metrics: [
-      { value: '4 specialised agents', label: 'research, drafting, QA & orchestration' },
-      { value: 'Self-grading loop', label: 'every draft scored against a rubric before I see it' },
+      { value: '4 agents', label: 'research, drafting, QA & orchestration' },
+      { value: '100-pt rubric', label: 'reviewer agent gates drafts at a score of 75+' },
       { value: '5 job boards', label: 'scraped and filtered automatically, every day' },
     ],
     links: {

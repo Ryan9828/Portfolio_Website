@@ -25,10 +25,10 @@ export function AboutSection() {
     >
       <p className="text-muted-foreground max-w-2xl leading-relaxed">
         I'm a final-year Data Science &amp; Decisions student at UNSW (graduating 2026), currently
-        a Quantitative Risk Intern at Toyota Finance Australia, where I extend production XGBoost models and
-        build the data pipelines that feed them. Outside of work, I build full systems end to
-        end — ingestion, modeling, monitoring, and deployment — because the gap between a good
-        model and a useful one is usually everything that happens after the notebook.
+        a Quantitative Risk Analyst Intern at Toyota Finance Australia, where I extend production
+        XGBoost models and build the data pipelines that feed them. Outside of work I like owning
+        the whole system: ingestion, modelling, monitoring, and deployment. Most of what makes a
+        model useful happens after the training run, so that's the part I practise hardest.
       </p>
 
       <div className="grid sm:grid-cols-2 gap-6 mt-10">

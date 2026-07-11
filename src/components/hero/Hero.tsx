@@ -20,13 +20,13 @@ export function Hero() {
           Data Scientist / ML Engineer
         </h1>
         <p className="text-xl md:text-2xl text-muted-foreground mt-4 max-w-2xl">
-          Turning models into shipped systems — not notebooks.
+          I build ML systems that keep running after I close the laptop.
         </p>
         <p className="text-muted-foreground mt-6 max-w-xl">
-          Final-year Data Science &amp; Decisions student at UNSW and Quantitative Risk Intern
-          at Toyota Finance Australia. I build things that run unattended — deployed,
-          self-monitoring risk pipelines, recommenders, and fraud-detection APIs — with the
-          same rigor whether the audience is a model validator or a hiring manager.
+          Final-year Data Science &amp; Decisions student at UNSW and Quantitative Risk
+          Analyst Intern at Toyota Finance Australia. Recent work: a market-risk pipeline
+          that re-validates itself every weekday, a recommender with a live storefront
+          demo, and a fraud-detection API deployed on AWS.
         </p>
 
         <div className="flex flex-wrap items-center gap-3 mt-8">
