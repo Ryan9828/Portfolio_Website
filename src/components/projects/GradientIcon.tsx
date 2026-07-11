@@ -1,4 +1,4 @@
-import { LineChart, ShoppingBag, ShieldAlert, Landmark, Cpu, Bot, type LucideIcon } from 'lucide-react'
+import { LineChart, ShoppingBag, ShieldAlert, Landmark, Cpu, Bot, Scale, type LucideIcon } from 'lucide-react'
 import type { AccentColor, Project } from '@/data/projects'
 import { ACCENT_HEX } from '@/components/ui/button'
 
@@ -9,6 +9,7 @@ const ICONS: Record<Project['icon'], LucideIcon> = {
   Landmark,
   Cpu,
   Bot,
+  Scale,
 }
 
 interface GradientIconProps {

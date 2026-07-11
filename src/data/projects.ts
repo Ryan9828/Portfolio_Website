@@ -26,7 +26,7 @@ export interface Project {
   description: string
   flagship: boolean
   accent: AccentColor
-  icon: 'LineChart' | 'ShoppingBag' | 'ShieldAlert' | 'Landmark' | 'Cpu' | 'Bot'
+  icon: 'LineChart' | 'ShoppingBag' | 'ShieldAlert' | 'Landmark' | 'Cpu' | 'Bot' | 'Scale'
   screenshot?: Screenshot
   techStack: string[]
   metrics: Metric[]
@@ -134,6 +134,25 @@ export const projects: Project[] = [
     ],
     links: {
       github: { label: 'View Code', url: 'https://github.com/Ryan9828/Loan_project', status: 'live' },
+    },
+  },
+  {
+    slug: 'toxicity-bias-audit',
+    title: 'Toxicity Bias Audit',
+    tagline: 'Do toxicity classifiers punish comments that mention identity? An NLP fairness audit.',
+    description:
+      "Toxicity models often flag harmless comments just for mentioning an identity group — in the Jigsaw dataset, comments mentioning \"black\" are labelled toxic 31% of the time against an 8% average, and models learn that shortcut. I implemented the competition's bias metric from scratch, then tested the same reweighting mitigation on two model classes. On the TF-IDF baseline it only moved errors between subgroups (a statistical tie overall); on a fine-tuned DistilRoBERTa it produced a genuine, significant improvement. Every claim carries a paired-bootstrap confidence interval, and the README reports the remaining failures as plainly as the wins.",
+    flagship: false,
+    accent: 'green',
+    icon: 'Scale',
+    techStack: ['Python', 'Hugging Face Transformers', 'PyTorch', 'scikit-learn', 'pytest'],
+    metrics: [
+      { value: '1.8M', label: 'comments audited across 9 identity subgroups' },
+      { value: '2,000', label: 'bootstrap resamples behind every claim' },
+      { value: '39 tests', label: 'incl. hand-computed known-answer checks' },
+    ],
+    links: {
+      github: { label: 'View Code', url: 'https://github.com/Ryan9828/Toxicity-Bias-Audit', status: 'live' },
     },
   },
   {
