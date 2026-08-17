@@ -89,15 +89,15 @@ export const projects: Project[] = [
     title: 'LSTM Fraud Detection & Deployment',
     tagline: 'Real-time credit card fraud detection, deployed as a live API',
     description:
-      "Flags likely-fraudulent credit card transactions in real time, trained on 1.85M transactions. The LSTM reads each customer's recent purchase history as a sequence, because fraud shows up as a change in spending pattern rather than a single suspicious charge. I tuned the alert threshold against the dollar cost of missed fraud vs. false alarms, then packaged the model into a FastAPI service and deployed it on AWS for real-time checks.",
+      "Flags likely-fraudulent credit card transactions in real time, trained on 1.85M transactions. The LSTM reads each customer's recent purchase history as a sequence, because fraud shows up as a change in spending pattern rather than a single suspicious charge. I tuned the alert threshold against the dollar cost of missed fraud vs. false alarms, then packaged the model into a FastAPI service and deployed it on AWS for real-time checks. When the headline metrics looked too good, I audited my own evaluation, found it only ever scored customers with long purchase histories, and republished corrected numbers — the audit notebook reproduces the original results exactly before fixing them.",
     flagship: false,
     accent: 'pink',
     icon: 'ShieldAlert',
     techStack: ['Python', 'TensorFlow / Keras', 'FastAPI', 'Docker', 'AWS EC2'],
     metrics: [
-      { value: '~3× cheaper', label: 'fraud cost vs a standard alert threshold' },
+      { value: '97.7%', label: 'of test fraud caught at the cost-tuned threshold' },
       { value: '32 transactions', label: "of history checked per customer" },
-      { value: '0.9865 / 0.9993', label: 'PR-AUC / ROC-AUC on held-out test data' },
+      { value: '0.9659 / 0.9994', label: 'PR-AUC / ROC-AUC, every test transaction scored' },
     ],
     links: {
       github: { label: 'View Code', url: 'https://github.com/Ryan9828/Fraud-Detection-Project', status: 'live' },
